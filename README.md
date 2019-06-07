@@ -28,6 +28,7 @@ on source address spoofing.
 - DHCPv6 over a layer 2 tunnel from the node to the gateway
 - unicast request over DHCPv6 relay on the node to the gateway
 - normal DHCPv6 prefix delegation from node to node
+- NPTv6 Network Prefix Translation
 
 ### Assumption about the network
 
