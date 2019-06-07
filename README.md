@@ -96,6 +96,8 @@ share.
 
 Announcement should contain the prefix and a list of (available sub-prefixes).
 
+Use NAT of ULA prefixes as fallback solution, e.g. if we run out of prefixes.
+
 ## Related mailing list conversations
 
 - https://ml.ninux.org/pipermail/battlemesh/2016-February/004352.html
