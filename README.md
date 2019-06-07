@@ -24,7 +24,7 @@ on source address spoofing.
 
 ## Ideas for solutions
 
-- idependent mechanism that configures prefixes in the network
+- independent mechanism that configures prefixes in the network
 - DHCPv6 over a layer 2 tunnel from the node to the gateway
 - unicast request over DHCPv6 relay on the node to the gateway
 - normal DHCPv6 prefix delegation from node to node
@@ -44,6 +44,10 @@ A layer 2 tunnel has an ethernet header in the inner header. Works on layer 2 of
 the OSI model.
 
 ### Unicast DHCPv6 request over DHCPv6 relay
+
+### independent mechanism that configures prefixes in the network
+
+DNCP: https://www.ietf.org/proceedings/93/slides/slides-93-homenet-6.pdf
 
 ## Terminology
 
@@ -102,3 +106,5 @@ Announcement should contain the prefix and a list of (available sub-prefixes).
 
 With a layer 2 routing protocol such as BATMAN prefix delegation is kind of
 trivial.
+
+
