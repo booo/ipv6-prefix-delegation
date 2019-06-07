@@ -16,7 +16,7 @@ on source address spoofing.
 
 ## Problem
 
-- public prefix owned by a internet gateway
+- public prefix owned by an internet gateway
 - nodes in the network want to route data via the gateway
 - nodes want/need to use a sub-prefix of the gateways prefix
 - src address must be subprefix /128 of gateways public prefix
@@ -91,6 +91,11 @@ Maybe a gateway should announce a prefix and the sub-prefixes it would like/can
 share.
 
 Announcement should contain the prefix and a list of (available sub-prefixes).
+
+## Related mailing list conversations
+
+- https://ml.ninux.org/pipermail/battlemesh/2016-February/004352.html
+- https://ml.ninux.org/pipermail/battlemesh/2016-April/004700.html
 
 
 ## Final remarks
