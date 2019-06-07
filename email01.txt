@@ -1,0 +1,72 @@
+Hi,
+
+in our local wireless community network we would like to properly deploy IPv6 on
+top of a layer 3 routing protocol such as OLSRv2, babel, etc..
+
+We spent some time reflecting on how to achieve our goal. I would like
+to share our thoughts with you and would like to ask you for your feedback.
+
+Our main goal is to have one ore more public IPv6 prefixes in the mesh network.
+The problem domain can be split in two larger problems:
+
+1) How do we distribute the ipv6 public prefix from a gateway node to nodes in
+the network? The problem here is that we can't just use DHCPv6 or NDP because we
+don't have one big layer-2-network.
+
+2) How do we guarantee that packets with a specific source address get routed
+via the gateway the address originated from? The problem is that a gateway or
+upstream ISP would possibly drop outbound packages that do not have a src ip
+from the gateway prefix. This makes sense to mitigate e.g. DDoS attacks based
+on source address spoofing.
+
+To my knowledge, the later problem is solved by source specific routing
+implemented in layer 3 routing daemons such as OLSRv2 or babel(s).
+
+The proper distribution/delegation of IPv6 prefixes still remains a problem.
+
+I suggest that we use a combination of IPv6 prefix delegation and DHCPv6 relays
+to delegate prefixes from the gateway to the nodes (and clients of the node).
+
+I assume that we can establish basic connectivity between nodes in the mesh
+network by using ULA prefixes [1] and a routing daemon that uses these
+addresses for establishing a mesh network.
+
+A gateway that has a prefix to delegate starts a DHCPv6 server. The server is
+reachable by other nodes via the ULA address [1]. In addition, the server can be
+reached by other nodes via a public IPv6 address that is part of the prefix.
+
+A gateway that wants to delegate prefixes announces the prefix to the other
+nodes (think of HNAs or local attached networks).
+
+A node that wants to use one or more prefixes gets a list of available prefixes
+and the responsible gateway ips through the routing daemon. The node can use the
+gateway ips to configure a list of destination addresses for its local DHCPv6
+relay. [2]
+
+A node that wants to request a prefix for local delegation can send a prefix
+delegation request to the local DHCPv6 relay. The relay will forward the
+delegation request via unicast/multicast to gateways/DHCPv6 servers responsible
+for a prefix.
+
+Once a node received a prefix, the prefix can be destributed to clients e.g. via
+NDP/SLAAC (stateless auto address configuration).
+
+A node that received a prefix announces the prefix in the layer 3 mesh. The node
+and all clients will be reachable through the announced prefix.
+
+A node will only ask gateways for a prefix if they announce a default route
+(::/0).
+
+To reduce complexity of the setup we could also push for an extension of the
+dhcpv6 client behaivour as described in section 18.1 of the DHCPv6 RFC [3].
+This would make the relay agent on the node obsolete because the node can
+send a DHCPv6 client request directly to the server on the gateway.
+
+We will try to implement this idea in the next month in a test bed. Before we
+start to implement the idea we would love to get some feedback from you.
+
+Best Philipp
+
+[1] https://tools.ietf.org/html/rfc4193
+[2] https://tools.ietf.org/html/rfc3315#section-20
+[3] https://tools.ietf.org/html/rfc3315#section-18.1
