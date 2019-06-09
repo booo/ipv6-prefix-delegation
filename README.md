@@ -100,6 +100,14 @@ Use NAT of ULA prefixes as fallback solution, e.g. if we run out of prefixes.
 
 Is it a requirement to distribute prefixes that are smaller than /64?
 
+How does flooding of information work? Do they use "simple" flooding algorithms?
+Who is a routing algorithm different from a flooding algorithm?
+
+What a the fundamental building blocks of a modern routing protocol?
+
+How do you find the second best path to a destination in a distance vector
+routing protocol?
+
 ## Related mailing list conversations
 
 - https://ml.ninux.org/pipermail/battlemesh/2016-February/004352.html
