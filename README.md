@@ -132,6 +132,10 @@ current connection down and reestablishes a connection to the new gateway.
 
 DNCP: https://www.ietf.org/proceedings/93/slides/slides-93-homenet-6.pdf
 
+Homenet prefix assignment algorithm:
+
+https://tools.ietf.org/html/draft-pfister-homenet-prefix-assignment-01
+
 ## Terminology
 
 - node
@@ -190,6 +194,15 @@ What a the fundamental building blocks of a modern routing protocol?
 
 How do you find the second best path to a destination in a distance vector
 routing protocol?
+
+"A prefix is said to be available if it does not overlap with any other
+assignment by any other router in the network." Quote from:
+
+https://tools.ietf.org/html/draft-pfister-homenet-prefix-assignment-01
+
+The node that receives a prefix should advertice a route to this prefix. This
+results in shorter routes in the network. No routes via the gateway to the node.
+And we can see if a gateway still has prefixes available.
 
 ## Related mailing list conversations
 
