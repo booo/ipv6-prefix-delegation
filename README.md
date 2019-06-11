@@ -192,6 +192,8 @@ Who is a routing algorithm different from a flooding algorithm?
 
 What a the fundamental building blocks of a modern routing protocol?
 
+What is a router id good for?
+
 How do you find the second best path to a destination in a distance vector
 routing protocol?
 
