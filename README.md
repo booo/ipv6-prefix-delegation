@@ -206,6 +206,10 @@ The node that receives a prefix should advertice a route to this prefix. This
 results in shorter routes in the network. No routes via the gateway to the node.
 And we can see if a gateway still has prefixes available.
 
+How do the different solutions deal with e.g netsplits?
+
+What happens if the gateway goes offline?
+
 ## Related mailing list conversations
 
 - https://ml.ninux.org/pipermail/battlemesh/2016-February/004352.html
