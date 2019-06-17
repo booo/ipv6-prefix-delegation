@@ -188,7 +188,13 @@ Use NAT of ULA prefixes as fallback solution, e.g. if we run out of prefixes.
 Is it a requirement to distribute prefixes that are smaller than /64?
 
 How does flooding of information work? Do they use "simple" flooding algorithms?
-Who is a routing algorithm different from a flooding algorithm?
+What is the difference between a routing algorithm and a flooding algorithm?
+
+For efficient flooding multipoint relay flooding can be used. It's used in OLSR.
+Can we use MPRs in distance vector routing protocols? Finding the MPR set is
+NP-complete. A logarithmic heuristic can be used to find the good approximation.
+
+MPR explained: http://www.olsr.org/docs/report_html/node28.html
 
 What a the fundamental building blocks of a modern routing protocol?
 
