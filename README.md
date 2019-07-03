@@ -38,6 +38,23 @@ establishing a mesh network.
 
 ULA: https://tools.ietf.org/html/rfc4193
 
+### unicast request over DHCPv6 relay
+
+The nodes uses a local DHCPv6 relay to send a DHCPv6 request to one or multiple
+nodes in the network.
+
+dnsmasq can be configured as DHCPv6 relay. Dnsmasq is able "... to relay from a
+single local address to multiple remote servers by using multiple --dhcp-relay
+configs with the same local address and different server addresses".
+(http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
+
+"All_DHCP_Servers (FF05::1:3) ..." is "... a site-scoped multicast address used
+by a relay agent to communicate with servers, either because the relay agent
+wants to send messages to all servers or because it does not know the unicast".
+
+dnsmasq can be configured to use the site-scoped All_DHCP_Servers multicast
+address.
+
 ### DHCPv6 over layer 2 tunnel
 
 A layer 2 tunnel has an ethernet header in the inner header. Works on layer 2 of
